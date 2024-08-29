@@ -1,0 +1,47 @@
+img {
+    width: 150px;
+    height:140px;   
+    border-radius: 50%;
+    border: 5px solid #333;
+}
+
+#main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    height: 6hv;
+}
+
+#main div{
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transition: box-shadow 0.3s ease;   
+    text-align: center;
+    border-radius: 5%;
+}
+
+#carrito{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#carrito div{
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    border: 1px solid black;
+    background-color: #f0f0f0;
+    text-align: center;
+    border-radius: 10%;
+}
+
+body {
+    background-image: url('https://www.freepik.es/fotos/streaming-fondo/3');
+}
