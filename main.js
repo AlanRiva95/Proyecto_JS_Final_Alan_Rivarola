@@ -1,3 +1,31 @@
+
+Swal.fire({
+    title: "Bienvenido, por favor ingrese su edad",
+    icon: "question",
+    input: "number",
+    inputLabel: "Yo tengo:",
+    background:"url(./images/coctel-4.jpg)",
+    color:"#ffff",
+  }) .then((result)=>{
+ //  console.log(result.value);
+    if(result.value <= 18){
+        Swal.fire({
+            title: "No podes realizar pedidos",
+            icon: "warning",
+            background:"url(./images/fondo-1.png)",
+            color:"#ffff"
+        })             
+    } 
+    else{(result.value >= 18)
+        swal.fire({ 
+            title: "Gracias, por favor elegi tu coctel",
+            color:"#ffff",
+            background:"url(./images/coctel-5.png)",
+            showConfirmButton: false,
+            timer:1200
+        })
+    }
+    })
 const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
 const main = document.getElementById("main");
 const carritoDOM = document.getElementById("carrito");
@@ -62,13 +90,41 @@ function actualizarCarrito() {
     agregarEventosCarrito();
 
 
-comprar.addEventListener("click", () => {
-    carrito = [];
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-    actualizarCarrito();
-});
+    comprar.addEventListener("click", () => {
+        // Mostrar el SweetAlert de confirmación
+        Swal.fire({
+            title: "Perfecto, ¿Desea pedir algo más?",
+            icon: "question",
+            color: "#ffff",
+            background: "url(./images/coctel-2.png)",
+            confirmButtonText: "Enviar pedido",
+            showCancelButton: true,
+            cancelButtonText: "Agregar coctel",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Si el usuario confirma, vaciar el carrito y actualizar el localStorage
+                carrito = [];
+                localStorage.setItem("carrito", JSON.stringify(carrito));
+                actualizarCarrito();
+    
+                Swal.fire({
+                    title: "Preparando tu pedido, ya te lo llevamos a la mesa",
+                    background: "url(./images/coctel-2.png)",
+                    color: "#ffff",
+                    confirmButtonText: "Gracias"
+                });
+            }
+        });
+    });actualizarCarrito();
+    
 
 cancelar.addEventListener("click", () => {
+    Swal.fire({
+        title: "Pedido Cancelado",
+        background:"url(./images/fondo-1.png)",
+        icon: "warning",
+        color:"#ffff"
+      });
     carrito = [];
     localStorage.setItem("carrito", JSON.stringify(carrito));
     actualizarCarrito();
