@@ -3,27 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bienvenido a Alianza Bar. Disfruta de una variedad de cócteles y bebidas en nuestro bar.">
     <link rel="stylesheet" href="./styles.css">
-    <title>Document</title>
+    <link rel="icon" href="./images/coctel-logo.jpg" type="image/x-icon"> 
+    <title>Alianza Bar</title>
 </head>
 <body>
-    <header>
-        <h1>Alianza Shop</h1>
+    <p id="total">0</p>
+     <button id="comprar">Enviar pedido</button><!--No encontre modo de agregar los botones dento del contenedor del carrito. no aparecen por mas css que le coloque   -->
+    <button id="cancelar">Cancelar</button>
+    <header> 
+        <h1 class="titulo">Alianza Bar</h1>
     </header>
-    <div>
-        <h4>Carrito</h4>
-        <div id="carrito"></div>
-        <button id="comprar">Comprar</button>
-        <button id="cancelar">Cancelar</button>
-        <p id="total">0</p>
+    
+    <button id="toggleCarrito">Ver pedido</button>
+    
+    <div id="carrito"></div>
+    <!-- <button id="cancelar">Cancelar</button> -->
+    <!-- <button id="comprar">Enviar pedido</button> -->
+       
+            </div>
+        </div>
+    </div>
+    
+    <div id="main">
+       
     </div>
 
-   
-    <div id="main"></div>
-   
-    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./main.js"></script>
+    <script async src="./main.js"></script>
 </body>
 </html>
-
